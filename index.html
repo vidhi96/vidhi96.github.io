@@ -21,17 +21,26 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-md navbar-dark">
-    <a class="navbar-brand" href="#">VJ</a>
+    <a class="navbar-brand" href="#home">VJ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="project.html">Experience</a>
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#certifications">Certifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#education">Education</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
@@ -110,7 +119,6 @@
               <div class="contact-icon"><i class="fa fa-briefcase"></i></div>
               <span>DevOps Engineer at HSBC</span>
             </div>
-
             <div class="contact-item">
               <div class="contact-icon"><i class="fa fa-graduation-cap"></i></div>
               <span>BTech ECE, 2018</span>
@@ -175,15 +183,6 @@
             </div>
           </div>
           <div class="skill-category">
-            <h5>AI / ML</h5>
-            <div class="skill-tags">
-              <span class="skill-tag">Machine Learning</span>
-              <span class="skill-tag">Deep Learning</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Matlab</span>
-            </div>
-          </div>
-          <div class="skill-category">
             <h5>Languages & Scripting</h5>
             <div class="skill-tags">
               <span class="skill-tag">Python</span>
@@ -211,8 +210,349 @@
     </div>
   </section>
 
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="container">
+      <h2 class="section-title">Work <span>Experience</span></h2>
+      <div class="section-divider"></div>
+
+      <div class="timeline">
+
+        <!-- HSBC -->
+        <div class="timeline-item">
+          <div class="timeline-dot current"></div>
+          <div class="timeline-card">
+            <div class="timeline-company">HSBC</div>
+            <div class="timeline-role">DevOps Engineer</div>
+            <div class="timeline-meta">
+              <i class="fa fa-calendar" style="margin-right:4px;"></i>July 2023 &mdash; Present &nbsp;&bull;&nbsp;
+              <i class="fa fa-map-marker" style="margin-right:4px;"></i>Pune, Maharashtra, India
+              <span style="background: rgba(16,185,129,0.15); color: #10b981; border-radius:4px; padding:2px 8px; font-size:0.75rem; margin-left:8px;">Current</span>
+            </div>
+            <ul class="timeline-desc" style="padding-left:1.1rem; margin:0;">
+              <li>Led the implementation of DevOps best practices including CI/CD and Infrastructure as Code (IaC) using Jenkins as part of the DevSecOps - Group Data Technology department.</li>
+              <li>Designed and maintained automated deployment pipelines for multiple projects, <strong style="color:var(--text-primary);">reducing deployment time by 50%</strong> and improving overall system reliability.</li>
+              <li>Collaborated with development and operations teams to streamline release processes and improve overall delivery efficiency.</li>
+              <li>Strong scripting skills in Python and Shell; tools include Git and Confluence.</li>
+              <li>Knowledge of cloud computing platforms: AWS, Azure, GCP.</li>
+              <li>Excellent troubleshooting, problem-solving, communication and collaboration abilities.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kyndryl -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-company">Kyndryl</div>
+            <div class="timeline-role">System Management Specialist</div>
+            <div class="timeline-meta">
+              <i class="fa fa-calendar" style="margin-right:4px;"></i>September 2021 &mdash; July 2023 &nbsp;&bull;&nbsp; 1 year 11 months &nbsp;&bull;&nbsp;
+              <i class="fa fa-map-marker" style="margin-right:4px;"></i>Bengaluru, Karnataka, India
+            </div>
+            <ul class="timeline-desc" style="padding-left:1.1rem; margin:0;">
+              <li>Managed all administration tasks related to AHS on WAS, IIS, Tomcat, Apache, and MQ technologies, maintaining strict <strong style="color:var(--text-primary);">SLA at 100%</strong>.</li>
+              <li>Participated in on-call rotations, ensuring 24/7 availability of critical applications and providing timely resolution to production issues.</li>
+              <li>Proactively identified and resolved performance bottlenecks, leading to a <strong style="color:var(--text-primary);">25% reduction in incident response time</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IBM - IT Specialist -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-company">IBM</div>
+            <div class="timeline-role">Information Technology Specialist</div>
+            <div class="timeline-meta">
+              <i class="fa fa-calendar" style="margin-right:4px;"></i>April 2020 &mdash; July 2023 &nbsp;&bull;&nbsp; 3 years 4 months &nbsp;&bull;&nbsp;
+              <i class="fa fa-map-marker" style="margin-right:4px;"></i>Hyderabad, Telangana, India
+            </div>
+            <p class="timeline-desc">
+              Provided IT specialist support across infrastructure and application layers, driving operational efficiency
+              and collaborating with global teams to deliver high-availability solutions for enterprise clients.
+            </p>
+          </div>
+        </div>
+
+        <!-- IBM - Middleware Admin -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-company">IBM India Pvt. Ltd.</div>
+            <div class="timeline-role">Middleware Administrator</div>
+            <div class="timeline-meta">
+              <i class="fa fa-calendar" style="margin-right:4px;"></i>March 2019 &mdash; August 2021 &nbsp;&bull;&nbsp; 2 years 6 months &nbsp;&bull;&nbsp;
+              <i class="fa fa-map-marker" style="margin-right:4px;"></i>Hyderabad, India
+            </div>
+            <ul class="timeline-desc" style="padding-left:1.1rem; margin:0;">
+              <li>Responsible for managing and operation of IT hardware, software, and application solutions including website certificate installation and CSR creation.</li>
+              <li>Managed all application tasks related to WAS and IIS Technologies.</li>
+              <li>Handled Application Deployments, service restarts, and maintained <strong style="color:var(--text-primary);">100% availability</strong> of web applications.</li>
+              <li>Planned and executed changes related to client demands and requirements.</li>
+              <li>Led a team in successfully delivering a complex engineering project on time and within budget.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tesca Technologies -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-company">Tesca Technologies Pvt. Ltd.</div>
+            <div class="timeline-role">Project Engineer</div>
+            <div class="timeline-meta">
+              <i class="fa fa-calendar" style="margin-right:4px;"></i>June 2018 &mdash; September 2018 &nbsp;&bull;&nbsp; 4 months &nbsp;&bull;&nbsp;
+              <i class="fa fa-map-marker" style="margin-right:4px;"></i>Jaipur, Rajasthan, India
+            </div>
+            <p class="timeline-desc">
+              Worked as a Project Engineer contributing to engineering projects and gaining hands-on experience with
+              technical implementation and project lifecycle management.
+            </p>
+          </div>
+        </div>
+
+        <!-- Techfleeters -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-company">Techfleeters Infotech Private Limited</div>
+            <div class="timeline-role">Intern</div>
+            <div class="timeline-meta">
+              <i class="fa fa-calendar" style="margin-right:4px;"></i>January 2017 &mdash; January 2018 &nbsp;&bull;&nbsp; 1 year 1 month &nbsp;&bull;&nbsp;
+              <i class="fa fa-map-marker" style="margin-right:4px;"></i>Jaipur, Rajasthan, India
+            </div>
+            <p class="timeline-desc">
+              Completed an extended internship gaining exposure to software development, IT operations, and professional engineering practices.
+            </p>
+          </div>
+        </div>
+
+        <!-- Airport Authority -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-company">Airport Authority of India</div>
+            <div class="timeline-role">Summer Intern</div>
+            <div class="timeline-meta">
+              <i class="fa fa-calendar" style="margin-right:4px;"></i>May 2017 &mdash; July 2017 &nbsp;&bull;&nbsp; 3 months &nbsp;&bull;&nbsp;
+              <i class="fa fa-map-marker" style="margin-right:4px;"></i>Jaipur, Rajasthan, India
+            </div>
+            <p class="timeline-desc">
+              Summer internship at one of India's premier aviation infrastructure organizations, gaining practical exposure to
+              large-scale communication and electronics systems.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section section-alt" id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifi<span>cations</span></h2>
+      <div class="section-divider"></div>
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-code"></i></div>
+          <div>
+            <div class="cert-name">Machine Learning with Python</div>
+            <div class="cert-issuer">IBM Cognitive Class</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-cube"></i></div>
+          <div>
+            <div class="cert-name">Docker Essentials: A Developer Introduction</div>
+            <div class="cert-issuer">IBM</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-database"></i></div>
+          <div>
+            <div class="cert-name">Big Data 101</div>
+            <div class="cert-issuer">IBM</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-cloud"></i></div>
+          <div>
+            <div class="cert-name">IBM Cloud Essentials</div>
+            <div class="cert-issuer">IBM</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-refresh"></i></div>
+          <div>
+            <div class="cert-name">IBM Agile Explorer</div>
+            <div class="cert-issuer">IBM</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-cloud"></i></div>
+          <div>
+            <div class="cert-name">Microsoft Azure Fundamentals (AZ-900)</div>
+            <div class="cert-issuer">Microsoft</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-database"></i></div>
+          <div>
+            <div class="cert-name">Azure Data Fundamentals (DP-900)</div>
+            <div class="cert-issuer">Microsoft / Udemy</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-amazon"></i></div>
+          <div>
+            <div class="cert-name">AWS Cloud Practitioner Essentials</div>
+            <div class="cert-issuer">Amazon Web Services</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-amazon"></i></div>
+          <div>
+            <div class="cert-name">AWS Partner: Cloud Economics Accreditation</div>
+            <div class="cert-issuer">Amazon Web Services</div>
+          </div>
+        </div>
+
+      </div>
+
+      <h4 style="color:var(--text-primary); font-size:1rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem;">
+        IBM Credly Badges
+      </h4>
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-code"></i></div>
+          <div>
+            <div class="cert-name">Python For Data Science</div>
+            <div class="cert-issuer">IBM Cognitive Class</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-cloud"></i></div>
+          <div>
+            <div class="cert-name">IBM Cloud Private: Infrastructure &amp; Architecture</div>
+            <div class="cert-issuer">IBM</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-cloud"></i></div>
+          <div>
+            <div class="cert-name">Cloud Core: IBM Developer Skills Network</div>
+            <div class="cert-issuer">IBM</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-flask"></i></div>
+          <div>
+            <div class="cert-name">Watson And Cloud Foundation</div>
+            <div class="cert-issuer">IBM Watson Academy</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-bar-chart"></i></div>
+          <div>
+            <div class="cert-name">Data Science Foundation</div>
+            <div class="cert-issuer">IBM Cognitive Class</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-server"></i></div>
+          <div>
+            <div class="cert-name">Hadoop Foundation</div>
+            <div class="cert-issuer">IBM Cognitive Class</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa fa-refresh"></i></div>
+          <div>
+            <div class="cert-name">Agile Practitioner</div>
+            <div class="cert-issuer">IBM</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section" id="education">
+    <div class="container">
+      <h2 class="section-title">Edu<span>cation</span></h2>
+      <div class="section-divider"></div>
+
+      <div class="edu-card" style="margin-bottom:1rem;">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <div class="edu-school">Anand International College of Engineering</div>
+            <div class="edu-degree">Bachelor of Technology &mdash; Electronics and Communication Engineering</div>
+            <div class="edu-year"><i class="fa fa-calendar" style="margin-right:4px;"></i>2014 &mdash; 2018 &nbsp;&bull;&nbsp; Jaipur, Rajasthan, India &nbsp;&bull;&nbsp; Honours Degree &nbsp;&bull;&nbsp; First Division</div>
+          </div>
+          <div class="col-md-4 text-md-right mt-3 mt-md-0">
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); border-radius:8px; padding:0.5rem 1rem;">
+              <i class="fa fa-graduation-cap" style="color:var(--accent);"></i>
+              <span style="color:var(--text-secondary); font-size:0.85rem;">BTech Graduate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-card" style="margin-bottom:1rem;">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <div class="edu-school">Senior Secondary (Class 12)</div>
+            <div class="edu-degree">Science Stream</div>
+            <div class="edu-year"><i class="fa fa-calendar" style="margin-right:4px;"></i>2013 &mdash; 2014 &nbsp;&bull;&nbsp; Completed with 77%</div>
+          </div>
+          <div class="col-md-4 text-md-right mt-3 mt-md-0">
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); border-radius:8px; padding:0.5rem 1rem;">
+              <i class="fa fa-star" style="color:var(--accent);"></i>
+              <span style="color:var(--text-secondary); font-size:0.85rem;">77%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <div class="edu-school">Secondary (Class 10)</div>
+            <div class="edu-degree">All Subjects</div>
+            <div class="edu-year"><i class="fa fa-calendar" style="margin-right:4px;"></i>2011 &mdash; 2012 &nbsp;&bull;&nbsp; Completed with 86%</div>
+          </div>
+          <div class="col-md-4 text-md-right mt-3 mt-md-0">
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); border-radius:8px; padding:0.5rem 1rem;">
+              <i class="fa fa-star" style="color:var(--accent);"></i>
+              <span style="color:var(--text-secondary); font-size:0.85rem;">86%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
-  <section class="section" id="contact">
+  <section class="section section-alt" id="contact">
     <div class="container">
       <h2 class="section-title">Get In <span>Touch</span></h2>
       <div class="section-divider"></div>
@@ -226,7 +566,6 @@
             <div class="contact-icon"><i class="fa fa-envelope"></i></div>
             <a href="mailto:vidhijaiswal11er@gmail.com">vidhijaiswal11er@gmail.com</a>
           </div>
-
           <div class="contact-item">
             <div class="contact-icon"><i class="fa fa-linkedin"></i></div>
             <a href="https://www.linkedin.com/in/vidhi-jayeswal" target="_blank" rel="noopener">linkedin.com/in/vidhi-jayeswal</a>
@@ -244,7 +583,7 @@
           </div>
         </div>
         <div class="col-md-6 mt-4 mt-md-0 text-center">
-          <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 2rem;">
+          <div style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: 12px; padding: 2rem;">
             <i class="fa fa-rocket" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; display:block;"></i>
             <h5 style="color: var(--text-primary); margin-bottom: 0.5rem;">Open to Opportunities</h5>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
