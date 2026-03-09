@@ -41,24 +41,28 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navMenu">
+      <button class="theme-toggle" id="themeToggle" title="Toggle Day/Night Mode" aria-label="Toggle theme">
+        <i class="fa fa-moon-o"></i>
+        <i class="fa fa-sun-o"></i>
+      </button>
       <ul class="nav navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#about"><span class="nav-planet nav-planet-earth"></span>About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#skills"><span class="nav-planet nav-planet-mars"></span>Skills</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="#experience"><span class="nav-planet nav-planet-saturn"></span>Experience</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#certifications">Certifications</a>
+          <a class="nav-link" href="#certifications"><span class="nav-planet nav-planet-jupiter"></span>Certifications</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#education">Education</a>
+          <a class="nav-link" href="#education"><span class="nav-planet nav-planet-neptune"></span>Education</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#contact"><span class="nav-planet nav-planet-venus"></span>Contact</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="mailto:vidhijaiswal11er@gmail.com">
@@ -71,6 +75,11 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
+    <div class="hero-jupiter">
+      <div class="jupiter-sphere">
+        <div class="jupiter-bands-overlay"></div>
+      </div>
+    </div>
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-7">
@@ -90,7 +99,7 @@
           </a>
         </div>
         <div class="col-md-5 text-center mt-4 mt-md-0">
-          <img src="images/WhatsApp Image 2025-11-09 at 14.13.01.jpeg" alt="Vidhi Jayeswal" class="hero-photo">
+          <img src="images/Gemini_Generated_Image_e9okzqe9okzqe9ok.png" alt="Vidhi Jayeswal" class="hero-photo">
         </div>
       </div>
     </div>
@@ -609,6 +618,24 @@
       </div>
     </div>
   </section>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      var toggle = document.getElementById('themeToggle');
+      var html = document.documentElement;
+      var saved = localStorage.getItem('theme');
+      if (saved) {
+        html.setAttribute('data-theme', saved);
+      }
+      toggle.addEventListener('click', function() {
+        var current = html.getAttribute('data-theme');
+        var next = current === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
 
   <!-- Footer -->
   <footer>

@@ -1,15 +1,37 @@
-/* ===== Variables ===== */
+/* ===== Variables — Night Mode (default) ===== */
 :root {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --bg-card: #1e293b;
   --accent: #38bdf8;
   --accent-dark: #0284c7;
+  --accent-light: #7dd3fc;
+  --accent-indigo: #818cf8;
+  --accent-cyan: #22d3ee;
+  --accent-sky: #0ea5e9;
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   --border: #334155;
   --success: #10b981;
+}
+
+/* ===== Variables — Day Mode ===== */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #e8f4fe;
+  --bg-card: #ffffff;
+  --accent: #0284c7;
+  --accent-dark: #0369a1;
+  --accent-light: #38bdf8;
+  --accent-indigo: #6366f1;
+  --accent-cyan: #0891b2;
+  --accent-sky: #0369a1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border: #bfdbfe;
+  --success: #059669;
 }
 
 /* ===== Base ===== */
@@ -357,7 +379,7 @@ a:hover {
 /* ===== Navbar ===== */
 .navbar {
   background-color: rgba(15, 23, 42, 0.95) !important;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
   backdrop-filter: blur(10px);
   padding: 0.9rem 2rem;
   position: sticky;
@@ -386,12 +408,283 @@ a:hover {
   background-color: var(--bg-secondary);
 }
 
+/* ===== Nav Planet Bullets ===== */
+.nav-planet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-link:hover .nav-planet {
+  transform: scale(1.4);
+}
+
+/* Earth — blue & green */
+.nav-planet-earth {
+  background: radial-gradient(circle at 35% 35%, #60a5fa, #22c55e 60%, #1e40af);
+  box-shadow: 0 0 6px rgba(96, 165, 250, 0.5);
+}
+.nav-link:hover .nav-planet-earth {
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.7);
+}
+
+/* Mars — red & orange */
+.nav-planet-mars {
+  background: radial-gradient(circle at 35% 35%, #fca5a5, #dc2626 60%, #991b1b);
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.5);
+}
+.nav-link:hover .nav-planet-mars {
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.7);
+}
+
+/* Saturn — golden with ring */
+.nav-planet-saturn {
+  background: radial-gradient(circle at 35% 35%, #fde68a, #f59e0b 60%, #b45309);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+}
+.nav-planet-saturn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 6px;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+.nav-link:hover .nav-planet-saturn {
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+}
+
+/* Jupiter — striped brown/tan */
+.nav-planet-jupiter {
+  background: radial-gradient(circle at 35% 35%, #fed7aa, #ea580c 50%, #9a3412);
+  box-shadow: 0 0 6px rgba(234, 88, 12, 0.5);
+  width: 12px;
+  height: 12px;
+}
+.nav-link:hover .nav-planet-jupiter {
+  box-shadow: 0 0 12px rgba(234, 88, 12, 0.7);
+}
+
+/* Neptune — deep blue/purple */
+.nav-planet-neptune {
+  background: radial-gradient(circle at 35% 35%, #a5b4fc, #4f46e5 60%, #312e81);
+  box-shadow: 0 0 6px rgba(79, 70, 229, 0.5);
+}
+.nav-link:hover .nav-planet-neptune {
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.7);
+}
+
+/* Venus — pale yellow/white */
+.nav-planet-venus {
+  background: radial-gradient(circle at 35% 35%, #fefce8, #eab308 60%, #a16207);
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.5);
+}
+.nav-link:hover .nav-planet-venus {
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.7);
+}
+
+/* ===== Hero Jupiter ===== */
+.hero-jupiter {
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  width: 480px;
+  height: 480px;
+  z-index: 0;
+  opacity: 0.45;
+  pointer-events: none;
+  animation: jupiter-float 30s ease-in-out infinite;
+}
+
+.jupiter-sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* Realistic Jupiter banding — alternating warm tones with varied widths */
+  background:
+    /* Highlight / specular reflection on upper-left */
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 25%, transparent 50%),
+    /* Horizontal atmospheric bands */
+    repeating-linear-gradient(
+      0deg,
+      /* North Polar Region — dark brownish */
+      #8b6e4e 0px,
+      #7a5e3e 6px,
+      /* North Temperate Belt — warm tan */
+      #d4b896 6px,
+      #e8d0aa 14px,
+      /* North Tropical Zone — creamy white */
+      #f2e6d0 14px,
+      #efe0c8 22px,
+      /* North Equatorial Belt — rich reddish brown */
+      #b06030 22px,
+      #a85828 30px,
+      #c07040 34px,
+      #b86838 38px,
+      /* Equatorial Zone — pale yellowish */
+      #f0dcc0 38px,
+      #ecdab8 48px,
+      #f4e2c8 52px,
+      /* South Equatorial Belt — darker brown with red tones */
+      #a05830 52px,
+      #984c28 58px,
+      #b86838 62px,
+      #a86038 66px,
+      #c47848 70px,
+      /* South Tropical Zone — lighter tan */
+      #e0c8a0 70px,
+      #dcc498 78px,
+      /* South Temperate Belt — medium brown */
+      #b08860 78px,
+      #a07850 84px,
+      /* South Temperate Zone — warm cream */
+      #e8d4b0 84px,
+      #e0cca8 90px,
+      /* South Polar Region — grayish brown */
+      #8a7058 90px,
+      #7e644c 100px
+    );
+  background-size: 100% 100%, 1200px 100%;
+  box-shadow:
+    /* Deep inner shadow for 3D curvature — right/bottom edge */
+    inset -50px -30px 80px rgba(0, 0, 0, 0.55),
+    /* Subtle warm inner glow on lit side */
+    inset 30px 20px 60px rgba(255, 230, 190, 0.12),
+    /* Terminator shadow (day/night boundary) */
+    inset -80px 0 40px rgba(0, 0, 0, 0.15),
+    /* Atmospheric glow */
+    0 0 60px rgba(210, 170, 110, 0.2),
+    0 0 120px rgba(200, 150, 80, 0.1),
+    0 0 200px rgba(180, 130, 60, 0.05);
+  animation: jupiter-rotate 80s linear infinite;
+  overflow: hidden;
+}
+
+/* Great Red Spot — iconic anticyclonic storm */
+.jupiter-sphere::before {
+  content: '';
+  position: absolute;
+  top: 56%;
+  left: 35%;
+  width: 60px;
+  height: 36px;
+  background:
+    radial-gradient(ellipse at 45% 40%,
+      #d04828 0%,
+      #c84020 20%,
+      #b83818 40%,
+      #a03010 55%,
+      rgba(160, 80, 40, 0.4) 75%,
+      transparent 100%
+    );
+  border-radius: 50%;
+  opacity: 0.85;
+  filter: blur(1px);
+  box-shadow:
+    0 0 8px rgba(200, 60, 30, 0.3),
+    inset 2px 1px 4px rgba(255, 120, 80, 0.3);
+}
+
+/* Secondary band detail — slight offset for depth */
+.jupiter-bands-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    repeating-linear-gradient(
+      2deg,
+      transparent 0px,
+      rgba(180, 120, 60, 0.08) 4px,
+      transparent 8px,
+      rgba(100, 60, 30, 0.06) 14px,
+      transparent 18px,
+      rgba(200, 160, 100, 0.05) 24px,
+      transparent 30px,
+      rgba(140, 90, 40, 0.07) 36px,
+      transparent 42px,
+      rgba(220, 180, 120, 0.04) 48px,
+      transparent 54px
+    );
+  background-size: 1600px 100%;
+  animation: jupiter-bands-drift 120s linear infinite;
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+}
+
+@keyframes jupiter-bands-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: -1600px 0; }
+}
+
+/* Atmospheric limb darkening + subtle band turbulence */
+.jupiter-sphere::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    /* Limb darkening — realistic spherical falloff */
+    radial-gradient(circle at 35% 35%,
+      transparent 30%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(0, 0, 0, 0.2) 65%,
+      rgba(0, 0, 0, 0.45) 80%,
+      rgba(0, 0, 0, 0.7) 95%
+    ),
+    /* Subtle color variation overlay */
+    radial-gradient(ellipse at 50% 30%,
+      rgba(255, 240, 200, 0.06) 0%,
+      transparent 60%
+    );
+}
+
+@keyframes jupiter-rotate {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 0, -1200px 0; }
+}
+
+@keyframes jupiter-float {
+  0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+  50% { transform: translate(-12px, -18px) rotate(-3deg); }
+}
+
+[data-theme="light"] .hero-jupiter {
+  opacity: 0.25;
+}
+
+@media (max-width: 768px) {
+  .hero-jupiter {
+    width: 280px;
+    height: 280px;
+    bottom: -50px;
+    right: -40px;
+    opacity: 0.3;
+  }
+}
+
 /* ===== Hero ===== */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #0f172a 0%, #0c1a2e 50%, #0f172a 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #0c2445 30%, #0e1b3d 60%, #0f172a 100%);
   position: relative;
   overflow: hidden;
   padding: 80px 0 60px;
@@ -404,7 +697,18 @@ a:hover {
   right: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.05) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -413,21 +717,24 @@ a:hover {
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--accent);
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
+  border: 3px solid transparent;
+  background-image: linear-gradient(var(--bg-primary), var(--bg-primary)), linear-gradient(135deg, #38bdf8, #818cf8, #22d3ee);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.25), 0 0 60px rgba(129, 140, 248, 0.1);
   margin-bottom: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-photo:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.4), 0 0 70px rgba(129, 140, 248, 0.2);
 }
 
 .hero-badge {
   display: inline-block;
-  background-color: rgba(56, 189, 248, 0.12);
-  color: var(--accent);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(129, 140, 248, 0.12));
+  color: var(--accent-light);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 20px;
   padding: 0.25rem 0.9rem;
@@ -448,7 +755,7 @@ a:hover {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #f1f5f9 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, #f1f5f9 0%, #7dd3fc 40%, #38bdf8 70%, #818cf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -474,8 +781,8 @@ a:hover {
 }
 
 .btn-primary-custom {
-  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-  color: #0f172a;
+  background: linear-gradient(135deg, var(--accent-indigo), var(--accent-dark), var(--accent));
+  color: #ffffff;
   font-weight: 700;
   padding: 0.65rem 1.5rem;
   border-radius: 8px;
@@ -487,8 +794,8 @@ a:hover {
 
 .btn-primary-custom:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
-  color: #0f172a;
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35), 0 4px 12px rgba(129, 140, 248, 0.2);
+  color: #ffffff;
 }
 
 .btn-outline-custom {
@@ -516,7 +823,11 @@ a:hover {
 }
 
 .section-alt {
-  background-color: var(--bg-secondary);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(14, 27, 61, 0.6) 100%);
+}
+
+[data-theme="light"] .section-alt {
+  background: linear-gradient(180deg, #e8f4fe 0%, #dbeafe 100%);
 }
 
 .section-title {
@@ -531,9 +842,9 @@ a:hover {
 }
 
 .section-divider {
-  width: 50px;
+  width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  background: linear-gradient(90deg, var(--accent-indigo), var(--accent), var(--accent-cyan), transparent);
   border-radius: 2px;
   margin-bottom: 2.5rem;
 }
@@ -558,7 +869,24 @@ a:hover {
   color: var(--text-secondary);
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-  transition: transform 0.2s ease, border-color 0.2s;
+  transition: transform 0.2s ease, border-color 0.2s, background 0.2s;
+}
+
+.stat-chip:nth-child(1) {
+  border-color: rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.08);
+}
+.stat-chip:nth-child(2) {
+  border-color: rgba(129, 140, 248, 0.25);
+  background: rgba(129, 140, 248, 0.08);
+}
+.stat-chip:nth-child(3) {
+  border-color: rgba(34, 211, 238, 0.25);
+  background: rgba(34, 211, 238, 0.08);
+}
+.stat-chip:nth-child(4) {
+  border-color: rgba(14, 165, 233, 0.25);
+  background: rgba(14, 165, 233, 0.08);
 }
 
 .stat-chip:hover {
@@ -567,7 +895,7 @@ a:hover {
 }
 
 .stat-chip strong {
-  color: var(--text-primary);
+  color: var(--accent-light);
 }
 
 /* ===== Skills ===== */
@@ -583,6 +911,10 @@ a:hover {
   color: var(--accent);
   margin-bottom: 0.75rem;
 }
+
+.skill-category:nth-child(1) h5 { color: var(--accent-sky); }
+.skill-category:nth-child(2) h5 { color: var(--accent-cyan); }
+.skill-category:nth-child(3) h5 { color: var(--accent-indigo); }
 
 .skill-tags {
   display: flex;
@@ -600,6 +932,32 @@ a:hover {
   font-weight: 500;
   transition: all 0.2s;
   cursor: default;
+}
+
+/* Different blue shades per skill category */
+.skill-category:nth-child(1) .skill-tag {
+  border-color: rgba(14, 165, 233, 0.25);
+  background: rgba(14, 165, 233, 0.08);
+}
+.skill-category:nth-child(1) .skill-tag:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+  background: rgba(14, 165, 233, 0.18);
+}
+.skill-category:nth-child(2) .skill-tag {
+  border-color: rgba(34, 211, 238, 0.25);
+  background: rgba(34, 211, 238, 0.08);
+}
+.skill-category:nth-child(2) .skill-tag:hover {
+  border-color: rgba(34, 211, 238, 0.5);
+  background: rgba(34, 211, 238, 0.18);
+}
+.skill-category:nth-child(3) .skill-tag {
+  border-color: rgba(129, 140, 248, 0.25);
+  background: rgba(129, 140, 248, 0.08);
+}
+.skill-category:nth-child(3) .skill-tag:hover {
+  border-color: rgba(129, 140, 248, 0.5);
+  background: rgba(129, 140, 248, 0.18);
 }
 
 .skill-tag:hover {
@@ -622,7 +980,7 @@ a:hover {
   top: 8px;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--accent), var(--border));
+  background: linear-gradient(180deg, var(--accent-cyan), var(--accent), var(--accent-indigo), var(--border));
 }
 
 .timeline-item {
@@ -662,7 +1020,7 @@ a:hover {
 .timeline-card:hover {
   border-color: rgba(56, 189, 248, 0.3);
   transform: scale(1.02);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1), 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .timeline-company {
@@ -712,7 +1070,17 @@ a:hover {
 .cert-card:hover {
   border-color: rgba(56, 189, 248, 0.3);
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.12), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cert-card:nth-child(odd) .cert-icon {
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--accent-cyan);
+}
+
+.cert-card:nth-child(3n) .cert-icon {
+  background: rgba(129, 140, 248, 0.1);
+  color: var(--accent-indigo);
 }
 
 .cert-icon {
@@ -830,14 +1198,35 @@ a:hover {
   transform: translateY(-2px) scale(1.12);
 }
 
+.social-link:nth-child(1):hover {
+  border-color: var(--accent-indigo);
+  color: var(--accent-indigo);
+  background: rgba(129, 140, 248, 0.1);
+}
+.social-link:nth-child(2):hover {
+  border-color: var(--accent-sky);
+  color: var(--accent-sky);
+  background: rgba(14, 165, 233, 0.1);
+}
+.social-link:nth-child(3):hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+}
+
 /* ===== Footer ===== */
 footer {
-  background-color: var(--bg-secondary);
-  border-top: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--bg-secondary), rgba(14, 27, 61, 0.8));
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
   padding: 1.5rem 0;
   color: var(--text-muted);
   font-size: 0.85rem;
   text-align: center;
+}
+
+[data-theme="light"] footer {
+  background: linear-gradient(135deg, #e8f4fe, #dbeafe);
+  border-top-color: var(--border);
 }
 
 footer a {
@@ -845,6 +1234,90 @@ footer a {
 }
 footer a:hover {
   color: var(--accent);
+}
+
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-left: 0.75rem;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+.theme-toggle .fa-sun-o { display: none; }
+.theme-toggle .fa-moon-o { display: inline; }
+
+[data-theme="light"] .theme-toggle .fa-sun-o { display: inline; }
+[data-theme="light"] .theme-toggle .fa-moon-o { display: none; }
+
+/* ===== Light Mode Overrides ===== */
+[data-theme="light"] .stars,
+[data-theme="light"] .stars-2,
+[data-theme="light"] .stars-3,
+[data-theme="light"] .nebula,
+[data-theme="light"] .shooting-star,
+[data-theme="light"] .shooting-star-2,
+[data-theme="light"] .space-objects {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+[data-theme="light"] .hero {
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 30%, #f0f9ff 60%, #ede9fe 100%);
+}
+
+[data-theme="light"] .hero::before {
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.06) 0%, transparent 70%);
+}
+
+[data-theme="light"] .hero h1 {
+  background: linear-gradient(135deg, #0f172a 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .navbar {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+[data-theme="light"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(15, 23, 42, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-theme="light"] .btn-primary-custom {
+  color: #ffffff;
+}
+
+[data-theme="light"] .btn-primary-custom:hover {
+  color: #ffffff;
+}
+
+[data-theme="light"] a:hover {
+  color: var(--accent-dark);
+}
+
+[data-theme="light"] .nav-planet {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .nav-link:hover .nav-planet {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Responsive ===== */
